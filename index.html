@@ -164,8 +164,13 @@ a{color:inherit}
 /* ---- ESPERIENZA (racconto del menù, senza foto) ---- */
 .exp h2{font-size:clamp(30px,5.2vw,56px);margin:6px 0 22px}
 .exp h2 .l2{color:var(--red)}
+/* racconto + foto: due colonne su desktop (testo a sinistra, foto a destra),
+   impilate su mobile (foto sotto). */
+.racconto-wrap{display:grid;grid-template-columns:1fr .82fr;gap:40px;align-items:stretch}
+.racconto-foto{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.racconto-foto img{width:100%;height:100%;object-fit:cover;min-height:340px}
 /* racconto: colonna di testo leggibile, con un incipit in serif corsivo */
-.exp .racconto{max-width:66ch}
+.exp .racconto{max-width:none;align-self:center}
 .exp .racconto p{color:var(--muted);font-size:17px;line-height:1.75;margin-bottom:16px}
 .exp .racconto p:last-child{margin-bottom:0}
 .exp .racconto p b{color:var(--text);font-weight:600}
@@ -190,6 +195,8 @@ a{color:inherit}
 .tile img{width:100%;height:100%;object-fit:cover}
 @media (max-width:760px){
   .exp .racconto .racconto-lead{font-size:20px}
+  .racconto-wrap{grid-template-columns:1fr;gap:24px}
+  .racconto-foto img{min-height:220px}
   .exp .valori{grid-template-columns:1fr;gap:22px;margin-top:32px;padding-top:28px}
   .exp .cta-row{text-align:left}
   /* mobile: due larghe a tutta riga che incorniciano quattro tessere piccole */
@@ -412,10 +419,15 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
     <span class="kicker">L'esperienza</span>
     <h2 class="display">Non è un pranzo.<br><span class="l2">È un viaggio.</span></h2>
 
-    <div class="racconto">
-      <p class="racconto-lead">Il menù fisso della domenica è pensato come un percorso: quattro portate che si susseguono con il loro ritmo, dall'antipasto al dolce, per accompagnarti dal primo assaggio fino all'ultimo.</p>
-      <p>Si parte dalla <b>battuta al coltello</b>, tagliata a mano al momento; si prosegue con i <b>plin al sugo d'arrosto</b>, la pasta della tradizione piemontese tirata sottile. Poi la <b>guancia di suino</b>, cotta a lungo finché non si scioglie in bocca, e infine il <b>bunet</b>, il dolce che chiude da sempre i pranzi delle feste.</p>
-      <p>Dietro ogni piatto ci sono <b>materie prime scelte</b>: carni selezionate dai nostri fornitori di fiducia, verdure di stagione, nessuna scorciatoia. La stessa cura che mettiamo ogni giorno al banco, portata a tavola in un menù pensato per la domenica in famiglia.</p>
+    <div class="racconto-wrap">
+      <div class="racconto">
+        <p class="racconto-lead">Il menù fisso della domenica è pensato come un percorso: quattro portate che si susseguono con il loro ritmo, dall'antipasto al dolce, per accompagnarti dal primo assaggio fino all'ultimo.</p>
+        <p>Si parte dalla <b>battuta al coltello</b>, tagliata a mano al momento; si prosegue con i <b>plin al sugo d'arrosto</b>, la pasta della tradizione piemontese tirata sottile. Poi la <b>guancia di suino</b>, cotta a lungo finché non si scioglie in bocca, e infine il <b>bunet</b>, il dolce che chiude da sempre i pranzi delle feste.</p>
+        <p>Dietro ogni piatto ci sono <b>materie prime scelte</b>: carni selezionate dai nostri fornitori di fiducia, verdure di stagione, nessuna scorciatoia. La stessa cura che mettiamo ogni giorno al banco, portata a tavola in un menù pensato per la domenica in famiglia.</p>
+      </div>
+      <figure class="racconto-foto">
+        <img src="famiglia-2.jpg" alt="Grande tavolata di famiglia e amici che pranzano insieme da I Love Meat" loading="lazy">
+      </figure>
     </div>
 
     <div class="valori">
