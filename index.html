@@ -227,6 +227,8 @@ a{color:inherit}
 .hours .row{display:flex;justify-content:space-between;gap:14px;padding:15px 18px;border-bottom:1px solid var(--line);font-size:15px}
 .hours .row:last-child{border-bottom:none}
 .hours .row span:first-child{color:var(--muted)}
+.hours .row.orari{display:block;color:var(--text);line-height:1.5}
+.hours .row.orari b{color:var(--gold);font-weight:700}
 .hours .row.addr{background:var(--card);font-weight:600}
 .hours .row.addr a{color:var(--red);text-decoration:none}
 .map{border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:300px;background:#14100e}
@@ -372,8 +374,8 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
 
     <div class="book" id="book" aria-label="Prenota il tavolo">
       <div class="field">
-        <label for="data">1 · Data</label>
-        <input type="date" id="data" required>
+        <label for="data">1 · Giorno</label>
+        <select id="data" required></select>
       </div>
       <div class="field">
         <label for="persone">2 · Quante persone</label>
@@ -519,8 +521,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
     <h2 class="display">Trovaci qui</h2>
     <div class="find-grid">
       <div class="hours">
-        <div class="row"><span>Domenica a pranzo</span><span>12:30–14:30</span></div>
-        <div class="row"><span>Lunedì – Domenica (cena)</span><span>19:30–00:00</span></div>
+        <div class="row orari">Ci trovi <b>ogni domenica a pranzo</b>, dalle <b>12:30 alle 14:30</b>.</div>
         <div class="row addr"><span>Indirizzo</span><a href="https://www.google.com/maps/search/?api=1&query=Largo+II+Giugno+2+Pianezza+TO" target="_blank" rel="noopener">Largo II Giugno 2, Pianezza (TO)</a></div>
       </div>
       <div class="map">
@@ -591,13 +592,34 @@ window.LP_CONFIG = (function () {
   // Data locale in formato YYYY-MM-DD: toISOString() userebbe UTC e in Italia
   // (UTC+1/+2) tornerebbe il giorno prima, precompilando una data già passata.
   var iso=function(d){var m=d.getMonth()+1,g=d.getDate();return d.getFullYear()+"-"+(m<10?"0":"")+m+"-"+(g<10?"0":"")+g;};
-  dateEl.min=iso(today); if(!dateEl.value) dateEl.value=iso(today);
-
   for(var n=1;n<=20;n++){var o=document.createElement("option");o.value=n;o.textContent=n+(n===1?" persona":" persone");peopleEl.appendChild(o);}
   peopleEl.value="2";
 
-  // All'apertura porta la data sul primo giorno prenotabile (se oggi è finito, domani)
-  dateEl.value=firstBookableDate(dateEl.value,parseInt(peopleEl.value,10));
+  // L'offerta vale solo la domenica a pranzo: la tendina della data elenca
+  // soltanto le prossime domeniche, così gli altri giorni non sono selezionabili.
+  var MESI=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+  function labelDomenica(s){var p=s.split("-");var d=new Date(+p[0],+p[1]-1,+p[2]);return "Domenica "+d.getDate()+" "+MESI[d.getMonth()];}
+  function prossimeDomeniche(count){
+    var res=[], d=new Date(); d.setHours(0,0,0,0);
+    while(d.getDay()!==0) d.setDate(d.getDate()+1);            // prima domenica utile (oggi incluso)
+    var people=parseInt(peopleEl.value,10)||1, guard=0;
+    while(res.length<count && guard++<60){
+      var s=iso(d);
+      if(hasFreeSlot(s,people)) res.push(s);                   // salta la domenica se il pranzo è già passato
+      d.setDate(d.getDate()+7);
+    }
+    return res;
+  }
+  function riempiDomeniche(){
+    var giorni=prossimeDomeniche(10);
+    dateEl.innerHTML="";
+    var ph=document.createElement("option");
+    ph.value=""; ph.textContent="Scegli il giorno";
+    dateEl.appendChild(ph);
+    giorni.forEach(function(s){var o=document.createElement("option");o.value=s;o.textContent=labelDomenica(s);dateEl.appendChild(o);});
+    dateEl.value="";   // parte dal placeholder, l'utente sceglie
+  }
+  riempiDomeniche();
 
   function bookedFor(date,slot){return (BOOKED[date]&&BOOKED[date][slot])?BOOKED[date][slot]:0;}
 
@@ -621,17 +643,6 @@ window.LP_CONFIG = (function () {
     return false;
   }
 
-  // Primo giorno con almeno un orario libero: a fine serata evita di aprire il
-  // form su un oggi tutto esaurito, proponendo direttamente il giorno dopo.
-  function firstBookableDate(date,people){
-    var p=date.split("-"), d=new Date(+p[0],+p[1]-1,+p[2]);
-    for(var i=0;i<14;i++){
-      var s=iso(d);
-      if(hasFreeSlot(s,people)) return s;
-      d.setDate(d.getDate()+1);
-    }
-    return date;
-  }
 
   // Gli orari stanno in un menu a tendina: quelli non prenotabili restano
   // visibili ma disabilitati, col motivo accanto.
@@ -708,11 +719,6 @@ window.LP_CONFIG = (function () {
         errEl.textContent="Connessione assente. Chiamaci per confermare: "+PHONE;
       });
   }
-
-  // Apre il calendario toccando tutto il campo data (non solo l'iconcina)
-  function openDatePicker(){ try{ if(typeof dateEl.showPicker==="function") dateEl.showPicker(); }catch(e){} }
-  dateEl.addEventListener("click",openDatePicker);
-  dateEl.addEventListener("focus",openDatePicker);
 
   dateEl.addEventListener("change",function(){startCheckout();renderSlots();});
   peopleEl.addEventListener("change",function(){startCheckout();renderSlots();});
