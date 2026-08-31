@@ -25,6 +25,8 @@
   --radius:16px
 }
 html{scroll-behavior:smooth}
+/* offset per il nav fisso: le ancore (#menu, #book) non finiscono sotto la barra */
+#menu,#book{scroll-margin-top:88px}
 body{background:var(--bg);color:var(--text);font-family:"Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -326,14 +328,14 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
     <h1 class="display">Menu fisso<br>dall'antipasto al dolce<br><span class="l2">30€</span></h1>
     <p class="lead">La domenica a pranzo si va da I Love Meat.</p>
     <div class="cta-row">
-      <a class="btn" href="#book">Prenota un tavolo</a>
+      <a class="btn" href="#menu">Scopri il menu</a>
       <div class="rate"><span class="stars">★★★★★</span><br><b>4.9</b> · 500+ ospiti soddisfatti</div>
     </div>
   </div>
 </header>
 
 <!-- OFFERTA -->
-<section class="section">
+<section class="section" id="menu">
   <div class="wrap">
     <h2 class="offerta-titolo">Il menu della domenica</h2>
     <div class="offer">
