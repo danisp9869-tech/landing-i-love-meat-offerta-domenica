@@ -112,6 +112,11 @@ a{color:inherit}
 .offerta-titolo{color:var(--text);font-size:clamp(26px,3.6vw,40px);margin-bottom:16px}
 .offer{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;background:linear-gradient(160deg,#241813,#140f0d 70%);border:2px solid rgba(209,10,28,.55);border-radius:24px;padding:44px 34px;text-align:left;overflow:hidden;box-shadow:0 0 0 1px rgba(209,10,28,.12),0 24px 60px rgba(0,0,0,.5)}
 .offer-testo{position:relative;z-index:1}
+/* colonna sinistra: il menu; colonna destra: il prezzo con la CTA, in un pannello staccato */
+.offer-menu{position:relative;z-index:1}
+.offer-prezzo{position:relative;z-index:1;align-self:center;text-align:center;
+  background:rgba(10,9,8,.4);border:1px solid rgba(209,10,28,.4);border-radius:18px;padding:34px 28px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
 .offer h2.offer-title{font-size:clamp(44px,7.4vw,96px);line-height:.9;margin-bottom:20px}
 .offer-title .pre,.offer-title .post{display:block;font-size:.3em;line-height:1.1;color:var(--muted)}
 .offer-title .pre{margin-bottom:6px}
@@ -314,7 +319,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
   <div class="wrap">
     <h2 class="display offerta-titolo">Offerta</h2>
     <div class="offer">
-      <div class="offer-testo">
+      <div class="offer-menu">
         <span class="badge"><span class="dot"></span>Solo la domenica a pranzo</span>
         <h2 class="display offer-title">
           <span class="pre">Menu fisso della domenica</span>
@@ -326,14 +331,13 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
           <li><span class="corso">Secondo</span>Guancia di suino</li>
           <li><span class="corso">Dolce</span>Bunet</li>
         </ul>
+      </div>
+      <div class="offer-prezzo">
         <div class="price"><span class="pre">A persona</span>30€</div>
         <p class="valida">Bevande e coperto esclusi</p>
         <a class="btn" href="#book">Prenota un tavolo</a>
         <div class="fine">Posti limitati — prenota ora</div>
       </div>
-      <figure class="offer-foto">
-        <img src="cucina-agnolotti.jpg" alt="Plin al sugo d'arrosto, il primo del menu della domenica di I Love Meat" loading="lazy">
-      </figure>
     </div>
   </div>
 </section>
