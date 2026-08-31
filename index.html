@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 /* I Love Meat — landing "Per veri carnivori". Nero + oro beige, display Anton. */
@@ -21,6 +21,7 @@
   --red:#c5a643;--red-2:#d8bd63;--red-d:#836c1c;
   --gold:#d8bf6a;
   --ink-cta:#20180a;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --radius:16px
 }
 html{scroll-behavior:smooth}
@@ -113,51 +114,49 @@ a{color:inherit}
   .hero .lead{margin:14px auto 22px}
 }
 
-/* ---- OFFERTA ---- */
+/* ---- OFFERTA (menù elegante, serif Cormorant) ---- */
 .section{padding:36px 0}
-.offerta-titolo{color:var(--text);font-size:clamp(26px,3.6vw,40px);margin-bottom:16px}
-.offer{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;background:linear-gradient(160deg,#241813,#140f0d 70%);border:2px solid rgba(197,166,67,.55);border-radius:24px;padding:44px 34px;text-align:left;overflow:hidden;box-shadow:0 0 0 1px rgba(197,166,67,.12),0 24px 60px rgba(0,0,0,.5)}
-.offer-testo{position:relative;z-index:1}
-/* colonna sinistra: il menu; colonna destra: il prezzo con la CTA, in un pannello staccato */
-.offer-menu{position:relative;z-index:1}
-.offer-prezzo{position:relative;z-index:1;align-self:center;text-align:center;
-  background:rgba(10,9,8,.4);border:1px solid rgba(197,166,67,.4);border-radius:18px;padding:34px 28px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.offer h2.offer-title{font-size:clamp(44px,7.4vw,96px);line-height:.9;margin-bottom:20px}
-.offer-title .pre,.offer-title .post{display:block;font-size:.3em;line-height:1.1;color:var(--muted)}
-.offer-title .pre{margin-bottom:6px}
-.offer-title .post{margin-top:8px}
-.offer .sfida{font-size:clamp(21px,2.5vw,32px);line-height:1.04;margin:0 0 18px}
-.offer .sfida .l2{color:var(--red)}
-.offer .price s{display:inline-block;margin-right:14px;color:var(--muted);font-size:.46em;vertical-align:middle;
-  text-decoration-line:line-through;text-decoration-color:var(--red);text-decoration-thickness:.07em}
-.offer .valida{margin-top:8px;color:var(--red);font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.offer-foto{position:relative;z-index:1;border-radius:16px;overflow:hidden;border:1px solid var(--line);min-height:380px}
-.offer-foto img{width:100%;height:100%;object-fit:cover}
-.offer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(197,166,67,.18),transparent 60%);pointer-events:none}
-.offer .badge{margin-bottom:20px}
-.offer h2{font-size:clamp(30px,5.4vw,58px);margin-bottom:16px}
-.offer h2 .l2{color:var(--gold)}
-.offer p.desc{color:var(--muted);font-size:17px;max-width:46ch;margin:0 0 26px}
-.offer p.desc b{color:#fff}
-.offer .price{font-family:"Anton",sans-serif;color:var(--gold);font-size:clamp(60px,11vw,96px);line-height:.9}
-.offer .price .pre{display:inline-block;font-family:"Inter",sans-serif;color:var(--muted);font-size:17px;font-weight:600;margin-right:10px;vertical-align:middle}
-.offer .btn{margin-top:26px}
-.offer .fine{margin-top:16px;color:var(--muted);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
-/* menu fisso: un corso per riga, con l'etichetta della portata sopra in rosso */
-.offer .menu{list-style:none;margin:4px 0 26px;padding:0;max-width:46ch}
-.offer .menu li{padding:13px 0;border-bottom:1px solid var(--line);color:#fff;font-size:19px;font-weight:600}
-.offer .menu li:last-child{border-bottom:none}
-.offer .menu .corso{display:block;color:var(--red);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
-/* mobile: la card torna a colonna singola, foto sotto il testo.
-   Va dopo le regole .offer qui sopra, altrimenti verrebbe sovrascritta. */
-@media (max-width:700px){
-  .offer{grid-template-columns:1fr;gap:24px;padding:38px 20px;border-radius:20px;text-align:center}
+/* titolo di sezione in corsivo serif: dà subito il tono da menù del ristorante */
+.offerta-titolo{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--text);font-size:clamp(30px,4vw,46px);line-height:1.05;margin-bottom:22px}
+
+/* card a due pannelli: menù a sinistra, prezzo/CTA a destra, divisi da una linea */
+.offer{position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch;
+  background:linear-gradient(160deg,#1c1611,#120d0b 72%);border:1px solid rgba(197,166,67,.28);
+  border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.offer::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 80% at 50% -10%,rgba(197,166,67,.10),transparent 60%)}
+
+/* colonna sinistra: il menù */
+.offer-menu{position:relative;z-index:1;padding:46px 44px}
+.offer-kicker{color:var(--red);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+.offer-title-serif{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.4vw,40px);line-height:1.08;color:var(--text);margin-bottom:26px}
+.offer-title-serif em{font-style:italic;color:var(--gold)}
+.menu{list-style:none;margin:0;padding:0}
+.menu li{display:flex;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1px solid rgba(197,166,67,.14)}
+.menu li:first-child{padding-top:0}
+.menu li:last-child{border-bottom:none;padding-bottom:0}
+.menu .corso{flex:0 0 84px;color:var(--red);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding-top:.45em}
+.menu .piatto{font-family:var(--serif);font-weight:500;font-size:clamp(21px,2.3vw,27px);line-height:1.15;color:#f6f0e6}
+
+/* colonna destra: prezzo e CTA, su fondo appena più scuro, separato da una linea */
+.offer-prezzo{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:46px 34px;background:rgba(10,9,8,.35);border-left:1px solid rgba(197,166,67,.18)}
+.offer-prezzo .etichetta{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.offer-prezzo .price{font-family:var(--serif);font-weight:600;color:var(--gold);font-size:clamp(66px,9vw,94px);line-height:.9}
+.offer-prezzo .price .eur{font-size:.52em;vertical-align:.16em;margin-left:.02em}
+.offer-prezzo .sub{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:20px;margin-top:2px}
+.offer-prezzo .rule{width:56px;height:1px;background:rgba(197,166,67,.5);margin:24px 0}
+.offer-prezzo .btn{width:100%;max-width:300px}
+.offer-prezzo .valida{margin-top:14px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* mobile: pannelli impilati, linea di separazione in orizzontale */
+@media (max-width:760px){
   .offerta-titolo{text-align:center}
-  .offer p.desc{margin:0 auto 26px}
-  .offer .price{margin-top:4px}
-  .offer-foto{min-height:230px}
-  .offer .btn{width:100%;max-width:360px}
+  .offer{grid-template-columns:1fr}
+  .offer-menu{padding:32px 24px}
+  .menu li{gap:14px}
+  .menu .corso{flex-basis:72px}
+  .offer-prezzo{padding:32px 24px;border-left:none;border-top:1px solid rgba(197,166,67,.18)}
 }
 
 /* ---- ESPERIENZA / GALLERY ---- */
@@ -324,27 +323,26 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
 <!-- OFFERTA -->
 <section class="section">
   <div class="wrap">
-    <h2 class="display offerta-titolo">Offerta</h2>
+    <h2 class="offerta-titolo">Il menù della domenica</h2>
     <div class="offer">
       <div class="offer-menu">
-        <span class="badge"><span class="dot"></span>Solo la domenica a pranzo</span>
-        <h2 class="display offer-title">
-          <span class="pre">Menu fisso della domenica</span>
-          Dall'antipasto <span class="l2">al dolce</span>
-        </h2>
+        <p class="offer-kicker">Solo la domenica a pranzo</p>
+        <h3 class="offer-title-serif">Menù fisso, <em>dall'antipasto al dolce</em></h3>
         <ul class="menu">
-          <li><span class="corso">Antipasto</span>Battuta al coltello</li>
-          <li><span class="corso">Primo</span>Plin al sugo d'arrosto</li>
-          <li><span class="corso">Secondo</span>Guancia di suino</li>
-          <li><span class="corso">Dolce</span>Bunet</li>
+          <li><span class="corso">Antipasto</span><span class="piatto">Battuta al coltello</span></li>
+          <li><span class="corso">Primo</span><span class="piatto">Plin al sugo d'arrosto</span></li>
+          <li><span class="corso">Secondo</span><span class="piatto">Guancia di suino</span></li>
+          <li><span class="corso">Dolce</span><span class="piatto">Bunet</span></li>
         </ul>
       </div>
-      <div class="offer-prezzo">
-        <div class="price"><span class="pre">A persona</span>30€</div>
-        <p class="valida">Bevande e coperto esclusi</p>
+      <aside class="offer-prezzo">
+        <span class="etichetta">Menù completo</span>
+        <div class="price">30<span class="eur">€</span></div>
+        <span class="sub">a persona</span>
+        <div class="rule"></div>
         <a class="btn" href="#book">Prenota un tavolo</a>
-        <div class="fine">Posti limitati — prenota ora</div>
-      </div>
+        <p class="valida">Bevande e coperto esclusi</p>
+      </aside>
     </div>
   </div>
 </section>
