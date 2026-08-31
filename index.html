@@ -29,7 +29,7 @@ body{background:var(--bg);color:var(--text);font-family:"Inter",-apple-system,"S
 img{max-width:100%;display:block}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-.display{font-family:"Anton","Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.94}
+.display{font-family:"Anton","Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.08}
 .kicker{color:var(--red);font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
 .accent{color:var(--red)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border:none;border-radius:999px;background:var(--red);color:var(--ink-cta);font-family:"Anton","Arial Narrow",sans-serif;font-size:18px;font-weight:400;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-decoration:none;transition:.15s;box-shadow:0 10px 30px rgba(197,166,67,.35)}
@@ -116,19 +116,19 @@ a{color:inherit}
   .hero .lead{margin:14px auto 22px}
 }
 
-/* ---- OFFERTA (menù elegante, serif Cormorant) ---- */
+/* ---- OFFERTA (menu elegante, serif Cormorant) ---- */
 .section{padding:36px 0}
-/* titolo di sezione in corsivo serif: dà subito il tono da menù del ristorante */
+/* titolo di sezione in corsivo serif: dà subito il tono da menu del ristorante */
 .offerta-titolo{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--text);font-size:clamp(26px,3.3vw,40px);line-height:1.08;margin-bottom:22px}
 
-/* card a due pannelli: menù a sinistra, prezzo/CTA a destra, divisi da una linea */
+/* card a due pannelli: menu a sinistra, prezzo/CTA a destra, divisi da una linea */
 .offer{position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:stretch;
   background:linear-gradient(160deg,#1c1611,#120d0b 72%);border:1px solid rgba(197,166,67,.28);
   border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .offer::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 80% at 50% -10%,rgba(197,166,67,.10),transparent 60%)}
 
-/* colonna sinistra: il menù */
+/* colonna sinistra: il menu */
 .offer-menu{position:relative;z-index:1;padding:46px 44px}
 .offer-kicker{color:var(--red);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
 .offer-title-serif{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.9vw,34px);line-height:1.12;color:var(--text);margin-bottom:26px}
@@ -161,7 +161,7 @@ a{color:inherit}
   .offer-prezzo{padding:32px 24px;border-left:none;border-top:1px solid rgba(197,166,67,.18)}
 }
 
-/* ---- ESPERIENZA (racconto del menù, senza foto) ---- */
+/* ---- ESPERIENZA (racconto del menu, senza foto) ---- */
 .exp h2{font-size:clamp(30px,5.2vw,56px);margin:6px 0 22px}
 .exp h2 .l2{color:var(--red)}
 /* racconto + foto: due colonne su desktop (testo a sinistra, foto a destra),
@@ -319,7 +319,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
   <img class="hero-bg" src="hero-famiglia.jpg" alt="Famiglia di più generazioni che pranza insieme e ride al tavolo di I Love Meat" onerror="this.style.display='none'">
   <div class="wrap hero-inner">
     <span class="badge"><span class="dot"></span>Domenica a pranzo</span>
-    <h1 class="display">Menù fisso<br>dall'antipasto al dolce<br><span class="l2">30€</span></h1>
+    <h1 class="display">Menu fisso<br>dall'antipasto al dolce<br><span class="l2">30€</span></h1>
     <p class="lead">La domenica a pranzo si va da I Love Meat.</p>
     <div class="cta-row">
       <a class="btn" href="#book">Prenota un tavolo</a>
@@ -331,11 +331,11 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
 <!-- OFFERTA -->
 <section class="section">
   <div class="wrap">
-    <h2 class="offerta-titolo">Il menù della domenica</h2>
+    <h2 class="offerta-titolo">Il menu della domenica</h2>
     <div class="offer">
       <div class="offer-menu">
         <p class="offer-kicker">Solo la domenica a pranzo</p>
-        <h3 class="offer-title-serif">Menù fisso, <em>dall'antipasto al dolce</em></h3>
+        <h3 class="offer-title-serif">Menu fisso, <em>dall'antipasto al dolce</em></h3>
         <ul class="menu">
           <li><span class="corso">Antipasto</span><span class="piatto">Battuta al coltello</span></li>
           <li><span class="corso">Primo</span><span class="piatto">Plin al sugo d'arrosto</span></li>
@@ -344,7 +344,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
         </ul>
       </div>
       <aside class="offer-prezzo">
-        <span class="etichetta">Menù completo</span>
+        <span class="etichetta">Menu completo</span>
         <div class="price">30<span class="eur">€</span></div>
         <span class="sub">a persona</span>
         <div class="rule"></div>
@@ -421,9 +421,9 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
 
     <div class="racconto-wrap">
       <div class="racconto">
-        <p class="racconto-lead">Il menù fisso della domenica è pensato come un percorso: quattro portate che si susseguono con il loro ritmo, dall'antipasto al dolce, per accompagnarti dal primo assaggio fino all'ultimo.</p>
+        <p class="racconto-lead">Il menu fisso della domenica è pensato come un percorso: quattro portate che si susseguono con il loro ritmo, dall'antipasto al dolce, per accompagnarti dal primo assaggio fino all'ultimo.</p>
         <p>Si parte dalla <b>battuta al coltello</b>, tagliata a mano al momento; si prosegue con i <b>plin al sugo d'arrosto</b>, la pasta della tradizione piemontese tirata sottile. Poi la <b>guancia di suino</b>, cotta a lungo finché non si scioglie in bocca, e infine il <b>bunet</b>, il dolce che chiude da sempre i pranzi delle feste.</p>
-        <p>Dietro ogni piatto ci sono <b>materie prime scelte</b>: carni selezionate dai nostri fornitori di fiducia, verdure di stagione, nessuna scorciatoia. La stessa cura che mettiamo ogni giorno al banco, portata a tavola in un menù pensato per la domenica in famiglia.</p>
+        <p>Dietro ogni piatto ci sono <b>materie prime scelte</b>: carni selezionate dai nostri fornitori di fiducia, verdure di stagione, nessuna scorciatoia. La stessa cura che mettiamo ogni giorno al banco, portata a tavola in un menu pensato per la domenica in famiglia.</p>
       </div>
       <figure class="racconto-foto">
         <img src="famiglia-2.jpg" alt="Grande tavolata di famiglia e amici che pranzano insieme da I Love Meat" loading="lazy">
