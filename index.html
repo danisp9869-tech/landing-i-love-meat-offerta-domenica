@@ -11,13 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-/* I Love Meat — landing "Per veri carnivori". Nero + rosso, display Anton. */
+/* I Love Meat — landing "Per veri carnivori". Nero + oro beige, display Anton. */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0a0908;--bg2:#141010;--card:#1a1512;--card2:#211a16;--line:#2c2420;
   --text:#f2ede6;--muted:#9a9088;
-  --red:#d10a1c;--red-2:#f01f30;--red-d:#8f0713;
-  --gold:#ffc233;
+  /* Accento oro: le variabili restano chiamate --red per non toccare tutte le
+     regole, ma ora puntano a tonalità oro. --red-d è un oro scuro leggibile su bianco. */
+  --red:#c5a643;--red-2:#d8bd63;--red-d:#836c1c;
+  --gold:#d8bf6a;
+  --ink-cta:#20180a;
   --radius:16px
 }
 html{scroll-behavior:smooth}
@@ -28,13 +31,13 @@ a{color:inherit}
 .display{font-family:"Anton","Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.94}
 .kicker{color:var(--red);font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
 .accent{color:var(--red)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:17px 32px;border:none;border-radius:999px;background:var(--red);color:#fff;font-family:"Anton","Arial Narrow",sans-serif;font-size:22px;font-weight:400;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-decoration:none;transition:.15s;box-shadow:0 10px 30px rgba(209,10,28,.35)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:17px 32px;border:none;border-radius:999px;background:var(--red);color:var(--ink-cta);font-family:"Anton","Arial Narrow",sans-serif;font-size:22px;font-weight:400;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-decoration:none;transition:.15s;box-shadow:0 10px 30px rgba(197,166,67,.35)}
 .btn:hover{background:var(--red-2);transform:translateY(-1px)}
 .btn-ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--text);font-weight:700}
 .btn-ghost:hover{background:rgba(255,255,255,.04);border-color:var(--red);transform:none}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid rgba(209,10,28,.5);border-radius:999px;color:var(--red);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(209,10,28,.08)}
-.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(209,10,28,.6);animation:pulse 1.8s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(209,10,28,.5)}70%{box-shadow:0 0 0 7px rgba(209,10,28,0)}100%{box-shadow:0 0 0 0 rgba(209,10,28,0)}}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid rgba(197,166,67,.5);border-radius:999px;color:var(--red);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(197,166,67,.08)}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(197,166,67,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(197,166,67,.5)}70%{box-shadow:0 0 0 7px rgba(197,166,67,0)}100%{box-shadow:0 0 0 0 rgba(197,166,67,0)}}
 .stars{color:var(--red);letter-spacing:2px;font-size:14px}
 
 /* ---- NAV ---- */
@@ -56,12 +59,12 @@ a{color:inherit}
    Pieno in fondo, dove serve anche a fondersi con la sezione sotto */
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,9,8,.55),rgba(10,9,8,.3) 45%,rgba(10,9,8,.95) 97%)}
 .hero-inner{position:relative;z-index:2;max-width:1120px}
-/* Solo la pillola dell'hero è oro: gli altri badge della pagina ("Pochi tavoli
-   rimasti") restano rossi. Il fondo scuro non lo tolgo, serve a staccare la
-   scritta dalla foto — e sull'oro funziona meglio che su un fondo giallino. */
-.hero .badge{margin-bottom:18px;background:rgba(10,9,8,.55);backdrop-filter:blur(4px);color:var(--gold);border-color:rgba(255,194,51,.55)}
-.hero .badge .dot{background:var(--gold);box-shadow:0 0 0 0 rgba(255,194,51,.6);animation-name:pulse-gold}
-@keyframes pulse-gold{0%{box-shadow:0 0 0 0 rgba(255,194,51,.5)}70%{box-shadow:0 0 0 7px rgba(255,194,51,0)}100%{box-shadow:0 0 0 0 rgba(255,194,51,0)}}
+/* La pillola dell'hero usa l'oro pieno (--gold); gli altri badge usano l'oro
+   beige d'accento (--red). Il fondo scuro resta: serve a staccare la scritta
+   dalla foto. */
+.hero .badge{margin-bottom:18px;background:rgba(10,9,8,.55);backdrop-filter:blur(4px);color:var(--gold);border-color:rgba(216,191,106,.55)}
+.hero .badge .dot{background:var(--gold);box-shadow:0 0 0 0 rgba(216,191,106,.6);animation-name:pulse-gold}
+@keyframes pulse-gold{0%{box-shadow:0 0 0 0 rgba(216,191,106,.5)}70%{box-shadow:0 0 0 7px rgba(216,191,106,0)}100%{box-shadow:0 0 0 0 rgba(216,191,106,0)}}
 /* foto più luminosa sotto: doppia ombra (una stretta, una larga) per tenere
    staccate le scritte senza dover riscurire l'immagine */
 .hero h1{font-size:clamp(64px,13vw,196px);text-shadow:0 2px 10px rgba(0,0,0,.85),0 4px 40px rgba(0,0,0,.75)}
@@ -110,12 +113,12 @@ a{color:inherit}
 /* ---- OFFERTA ---- */
 .section{padding:36px 0}
 .offerta-titolo{color:var(--text);font-size:clamp(26px,3.6vw,40px);margin-bottom:16px}
-.offer{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;background:linear-gradient(160deg,#241813,#140f0d 70%);border:2px solid rgba(209,10,28,.55);border-radius:24px;padding:44px 34px;text-align:left;overflow:hidden;box-shadow:0 0 0 1px rgba(209,10,28,.12),0 24px 60px rgba(0,0,0,.5)}
+.offer{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;background:linear-gradient(160deg,#241813,#140f0d 70%);border:2px solid rgba(197,166,67,.55);border-radius:24px;padding:44px 34px;text-align:left;overflow:hidden;box-shadow:0 0 0 1px rgba(197,166,67,.12),0 24px 60px rgba(0,0,0,.5)}
 .offer-testo{position:relative;z-index:1}
 /* colonna sinistra: il menu; colonna destra: il prezzo con la CTA, in un pannello staccato */
 .offer-menu{position:relative;z-index:1}
 .offer-prezzo{position:relative;z-index:1;align-self:center;text-align:center;
-  background:rgba(10,9,8,.4);border:1px solid rgba(209,10,28,.4);border-radius:18px;padding:34px 28px;
+  background:rgba(10,9,8,.4);border:1px solid rgba(197,166,67,.4);border-radius:18px;padding:34px 28px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
 .offer h2.offer-title{font-size:clamp(44px,7.4vw,96px);line-height:.9;margin-bottom:20px}
 .offer-title .pre,.offer-title .post{display:block;font-size:.3em;line-height:1.1;color:var(--muted)}
@@ -128,7 +131,7 @@ a{color:inherit}
 .offer .valida{margin-top:8px;color:var(--red);font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .offer-foto{position:relative;z-index:1;border-radius:16px;overflow:hidden;border:1px solid var(--line);min-height:380px}
 .offer-foto img{width:100%;height:100%;object-fit:cover}
-.offer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(209,10,28,.18),transparent 60%);pointer-events:none}
+.offer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(197,166,67,.18),transparent 60%);pointer-events:none}
 .offer .badge{margin-bottom:20px}
 .offer h2{font-size:clamp(30px,5.4vw,58px);margin-bottom:16px}
 .offer h2 .l2{color:var(--gold)}
@@ -237,11 +240,12 @@ a{color:inherit}
 .field option:disabled{color:#a99f96}
 .privacy{display:flex;align-items:flex-start;gap:10px;margin:2px 0 14px;color:var(--ink-soft);font-size:12.5px;line-height:1.4;cursor:pointer}
 .privacy input{flex:0 0 auto;width:18px;height:18px;margin-top:1px;accent-color:var(--red);cursor:pointer}
-.privacy a{color:var(--red);text-decoration:underline}
+/* Link su card bianca: uso l'oro scuro, l'oro beige d'accento sul bianco è illeggibile */
+.privacy a{color:var(--red-d);text-decoration:underline}
 /* Secondo consenso, FACOLTATIVO: staccato da quello obbligatorio e un filo più
    tenue, così non viene letto come un secondo obbligo per prenotare. */
 .privacy.optional{margin-top:-8px;padding-top:12px;border-top:1px solid rgba(128,120,112,.32);opacity:.85}
-.cta{display:block;width:100%;text-align:center;padding:14px;border:none;border-radius:12px;background:var(--red);color:#fff;font-size:22px;font-weight:400;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;font-family:"Anton","Arial Narrow",sans-serif;box-shadow:0 8px 22px rgba(209,10,28,.35)}
+.cta{display:block;width:100%;text-align:center;padding:14px;border:none;border-radius:12px;background:var(--red);color:var(--ink-cta);font-size:22px;font-weight:400;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;font-family:"Anton","Arial Narrow",sans-serif;box-shadow:0 8px 22px rgba(197,166,67,.35)}
 .cta:hover{background:var(--red-2)}
 .cta:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
 .err{color:var(--red-d);font-weight:600;font-size:13px;margin-top:8px;min-height:16px}
@@ -251,12 +255,12 @@ a{color:inherit}
 
 /* ---- SUCCESS ---- */
 .success{text-align:center;padding:8px 4px}
-.success .ok{font-size:44px;line-height:1;color:var(--red)}
+.success .ok{font-size:44px;line-height:1;color:var(--red-d)}
 .success h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:26px;margin:12px 0 6px}
 .success p{color:var(--ink-soft);font-size:15px}
 .success .det{margin-top:16px;background:var(--field);border:1px solid var(--bordo);border-radius:10px;padding:14px;text-align:left;font-size:15px;line-height:1.9}
 .success .det span{color:var(--ink-soft)}
-.success .again{display:inline-block;margin-top:14px;color:var(--red);font-size:14px;text-decoration:none}
+.success .again{display:inline-block;margin-top:14px;color:var(--red-d);font-size:14px;text-decoration:none}
 
 /* ---- FOOTER ---- */
 /* i 24px laterali vanno ripetuti: .foot viene dopo .wrap e con lo shorthand
