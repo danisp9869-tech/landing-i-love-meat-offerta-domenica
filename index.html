@@ -651,7 +651,13 @@ window.LP_CONFIG = (function () {
   function renderSlots(){
     var date=dateEl.value, people=parseInt(peopleEl.value,10)||0;
     slotInput.innerHTML="";
-    if(!date||!people){ validate(); return; }
+    // Senza data la tendina resterebbe vuota (sembra rotta): mostro un invito.
+    if(!date||!people){
+      var attesa=document.createElement("option");
+      attesa.value=""; attesa.textContent="Prima scegli il giorno";
+      slotInput.appendChild(attesa);
+      validate(); return;
+    }
 
     var vuota=document.createElement("option");
     vuota.value=""; vuota.textContent="Scegli un orario";
