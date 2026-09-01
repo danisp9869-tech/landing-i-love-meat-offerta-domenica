@@ -566,9 +566,9 @@ window.LP_CONFIG = (function () {
     lunch: ["12:30","13:00","13:30","14:00","14:30"],
     dinner: [],
     offerName: "Menu della Domenica",
-    // Finisce nella colonna "Offerta" del foglio, condiviso con la degustazione.
-    // Tenerla corta e sempre uguale: serve a filtrare, non a essere letta.
-    offerTag: "Domenica",
+    // Finisce nella colonna "Offerta" del foglio (condiviso con bombette/degustazione)
+    // e come tipologia nell'email al ristoratore. Tenerla corta e sempre uguale.
+    offerTag: "Domenica pranzo",
     booked: booked
   };
 })();
@@ -581,7 +581,7 @@ window.LP_CONFIG = (function () {
   var PHONE = C.phone || "+393456881360";
   var SHEET_URL = (C.sheetUrl && C.sheetUrl.indexOf("http")===0) ? C.sheetUrl : "";
   var OFFER = C.offerName || "Menu della Domenica";
-  var OFFER_TAG = C.offerTag || "Domenica";
+  var OFFER_TAG = C.offerTag || "Domenica pranzo";
   var LUNCH = C.lunch || ["12:30","13:00","13:30","14:00","14:30"];   // offerta della domenica a pranzo
   var DINNER = C.dinner || [];
   var BOOKED = C.booked || {};
