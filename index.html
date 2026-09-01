@@ -146,7 +146,11 @@ a{color:inherit}
 .offer-prezzo{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   padding:46px 34px;background:rgba(10,9,8,.35);border-left:1px solid rgba(197,166,67,.18)}
 .offer-prezzo .etichetta{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.offer-prezzo .prezzo-riga{display:flex;align-items:baseline;justify-content:center;gap:16px}
+.offer-prezzo .prezzo-old{font-family:var(--serif);font-weight:500;color:var(--muted);font-size:clamp(30px,4.2vw,42px);
+  text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
 .offer-prezzo .price{font-family:var(--serif);font-weight:500;color:var(--gold);font-size:clamp(76px,10.5vw,108px);line-height:.9}
+.offer-prezzo .prezzo-cond{margin-top:8px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 .offer-prezzo .price .eur{font-size:.52em;vertical-align:.16em;margin-left:.02em}
 .offer-prezzo .sub{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:20px;margin-top:2px}
 .offer-prezzo .rule{width:56px;height:1px;background:rgba(197,166,67,.5);margin:24px 0}
@@ -355,11 +359,15 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
       </div>
       <aside class="offer-prezzo">
         <span class="etichetta">Menu completo</span>
-        <div class="price">30<span class="eur">€</span></div>
+        <div class="prezzo-riga">
+          <span class="prezzo-old">45€</span>
+          <span class="price">30<span class="eur">€</span></span>
+        </div>
         <span class="sub">a persona</span>
+        <p class="prezzo-cond">Solo se prenoti qui sotto</p>
         <div class="rule"></div>
         <a class="btn" href="#book">Prenota un tavolo</a>
-        <p class="valida">Bevande e coperto esclusi</p>
+        <p class="valida">Posti limitati · bevande e coperto esclusi</p>
       </aside>
     </div>
   </div>
