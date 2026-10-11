@@ -328,7 +328,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
 <!-- NAV -->
 <nav class="nav">
   <div class="logo">I Love Meat<small>Per veri carnivori</small></div>
-  <a class="btn" href="#book">Prenota ora</a>
+  <a class="btn" href="#book">Prenota un tavolo</a>
 </nav>
 
 <!-- HERO -->
@@ -340,7 +340,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
     <p class="hero-offerta">Offerta valida solo online</p>
     <p class="lead">La domenica a pranzo si va da I Love Meat.</p>
     <div class="cta-row">
-      <a class="btn" href="#book">Blocca offerta e riserva un tavolo</a>
+      <a class="btn" href="#book">Prenota un tavolo</a>
       <div class="rate"><span class="stars">★★★★★</span><br><b>4.9</b> · 500+ ospiti soddisfatti</div>
     </div>
   </div>
@@ -352,7 +352,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
     <div class="book-head">
       <span class="kicker">Prenota</span>
       <h2 class="display">Il tuo tavolo ti aspetta</h2>
-      <span class="badge"><span class="dot"></span>Pochi tavoli rimasti</span>
+      <span class="badge"><span class="dot"></span>Pochi tavoli disponibili</span>
     </div>
 
     <div class="book" id="book" aria-label="Prenota il tavolo">
@@ -393,7 +393,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
         <span>Acconsento a ricevere offerte, promozioni e comunicazioni commerciali del ristorante tramite i recapiti da me forniti, come indicato nell'<a href="https://www.iubenda.com/privacy-policy/46821789" class="iubenda-noiframe iubenda-embed" title="Informativa Privacy">Informativa Privacy</a>. Il consenso è facoltativo e può essere revocato in qualsiasi momento.</span>
       </label>
 
-      <button class="cta" id="cta" disabled>Conferma prenotazione</button>
+      <button class="cta" id="cta" disabled>Prenota un tavolo</button>
       <div class="err" id="err"></div>
     </div>
   </div>
@@ -424,7 +424,7 @@ src="https://www.facebook.com/tr?id=1752658912398511&ev=PageView&noscript=1"
         <p class="prezzo-cond">Solo se prenoti online qui sotto</p>
         <div class="rule"></div>
         <a class="btn" href="#book">Prenota un tavolo</a>
-        <p class="valida">Posti limitati · bevande e coperto esclusi</p>
+        <p class="valida">Pochi tavoli disponibili · bevande e coperto esclusi</p>
       </aside>
     </div>
   </div>
@@ -730,7 +730,7 @@ window.LP_CONFIG = (function () {
       .then(function(){ showSuccess(date,people,slot,nome,tel); })
       .catch(function(){
         // Rete non disponibile: invita a chiamare, senza perdere la prenotazione
-        ctaEl.disabled=false; ctaEl.textContent="Conferma prenotazione";
+        ctaEl.disabled=false; ctaEl.textContent="Prenota un tavolo";
         errEl.textContent="Connessione assente. Chiamaci per confermare: "+PHONE;
       });
   }
