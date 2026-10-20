@@ -698,6 +698,8 @@ window.LP_CONFIG = (function () {
 
   function showSuccess(date,people,slot,nome,tel){
     fbTrack("Lead"); // conversione: prenotazione completata
+    fbTrack("Contact"); // la campagna Meta ottimizza su "Contatti": va inviato a ogni prenotazione
+    fbTrack("Schedule");
     bookEl.innerHTML=
       '<div class="success"><div class="ok">✓</div>'+
       '<h3>Tavolo prenotato, '+nome.split(" ")[0]+'!</h3>'+
